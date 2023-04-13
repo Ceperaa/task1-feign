@@ -17,6 +17,6 @@ public class Check {
     private boolean restrictWithoutTIN;
     private boolean restrictServicePackage;
     private boolean restrictAccountOpening;
-    private boolean restrictAccountCurrencies;
-    private List<CheckInfo> checkInfo;
+    private String[] restrictAccountCurrencies;
+    private List<CheckInfo> checks;
 }

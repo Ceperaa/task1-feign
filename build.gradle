@@ -22,17 +22,15 @@ ext {
     set('springCloudVersion', "2021.0.3")
 }
 
-ext.version = [
-        'wiremock': '2.35.0'
-]
-
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'com.github.tomakehurst:wiremock-jre8-standalone:2.35.0'
+    testImplementation 'com.github.tomakehurst:wiremock-jre8-standalone'
+    annotationProcessor "org.mapstruct:mapstruct-processor:1.5.3.Final"
+    implementation "org.mapstruct:mapstruct:1.5.3.Final"
 }
 
 dependencyManagement {

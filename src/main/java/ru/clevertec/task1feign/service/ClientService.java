@@ -1,8 +1,7 @@
 package ru.clevertec.task1feign.service;
 
-import ru.clevertec.task1feign.model.CheckInfo;
-import ru.clevertec.task1feign.model.ClientInfo;
+import ru.clevertec.task1feign.model.Client;
 
 public interface ClientService {
-    void checkWorker(ClientInfo checkInfo);
+    void checkWorker(Client client);
 }

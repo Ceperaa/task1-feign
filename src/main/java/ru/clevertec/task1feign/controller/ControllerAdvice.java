@@ -1,22 +1,27 @@
 package ru.clevertec.task1feign.controller;
 
+import feign.FeignException;
 import lombok.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import ru.clevertec.task1feign.exception.FieldNullException;
 
 @RestControllerAdvice
 @RequiredArgsConstructor
 public class ControllerAdvice {
 
-    @ExceptionHandler(value = {
-            Exception.class
-    })
-    public ResponseEntity<ExceptionObject> response404(Exception e) {
-        return new ResponseEntity<>(aggregate(e, HttpStatus.NOT_FOUND)
-                , HttpStatus.NOT_FOUND);
+    @ExceptionHandler(value = FieldNullException.class)
+    public ResponseEntity<ExceptionObject> response510(Exception e) {
+        return new ResponseEntity<>(aggregate(e, HttpStatus.NOT_EXTENDED),
+                HttpStatus.NOT_EXTENDED);
+    }
 
+    @ExceptionHandler(value = FeignException.class)
+    public ResponseEntity<ExceptionObject> response500(Exception e) {
+        return new ResponseEntity<>(aggregate(e, HttpStatus.INTERNAL_SERVER_ERROR),
+                HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     private ExceptionObject aggregate(Exception e, HttpStatus status) {

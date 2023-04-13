@@ -11,12 +11,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class ClientInfo {
 
-    private ClientDetail clientDetail;
-    private String cus;
-    private String sfa;
-    private String callerEntityId;
-    private String workflow;
-    private String id;
-    private String sessionId;
-    private String sessionPhone;
+    private ClientDetail clientDetails;
+    private App app;
 }
